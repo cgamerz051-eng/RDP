@@ -37,7 +37,7 @@ jobs:
 
     - name: Connect Tailscale
       run: |
-        & "C:\Program Files\Tailscale\tailscale.exe" up --authkey tskey-auth-kG24ineNPw11CNTRL-eHHZMqHPJ17bzeSCHpF827VrdqVFXo6c --hostname github-rdp
+        & "C:\Program Files\Tailscale\tailscale.exe" up --authkey tskey-auth-kTYSSk5A3U11CNTRL-tBFwEVHSdhFueWnmfJ5SiFMGhGpYiJup4 --hostname github-rdp
 
     - name: Show RDP Details
       run: |
