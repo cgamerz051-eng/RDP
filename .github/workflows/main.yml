@@ -51,11 +51,13 @@ jobs:
 
     - name: Connect Tailscale
       run: |
+        cd "C:\Program Files\Tailscale"
         tailscale up --authkey tskey-auth-kQzpKjd8eE11CNTRL-rjdDBvnrGc8wYen9BU3Vb8Qpy49uZcJYN --hostname github-rdp
 
     - name: Show RDP Details
       run: |
-        $ip = (tailscale ip -4)
+        cd "C:\Program Files\Tailscale"
+        $ip = (.\tailscale.exe ip -4)
         echo "================================="
         echo "RDP ACCESS READY"
         echo "IP: $ip"
