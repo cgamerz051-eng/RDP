@@ -31,14 +31,9 @@ jobs:
 
       - name: Create RDP User with Secure Password
         run: |
-          Add-Type -AssemblyName System.Security
-          $charSet = @{
-              Upper   = [char[]](65..90)      # A-Z
-              Lower   = [char[]](97..122)     # a-z
-              Number  = [char[]](48..57)      # 0-9
-              Special = ([char[]](33..47) + [char[]](58..64) +
-                         [char[]](91..96) + [char[]](123..126)) # Special characters
-          }
+          $Password = ConvertTo-SecureString "rithul123" -AsPlainText -Force
+          New-LocalUser "RDP" -Password $Password -FullName "RDP User" -Description "RDP User"
+          Add-LocalGroupMember -Group "Administrators" -Member "RDP"
           $rawPassword = @()
           $rawPassword += $charSet.Upper | Get-Random -Count 4
           $rawPassword += $charSet.Lower | Get-Random -Count 4
